@@ -2,16 +2,16 @@ package main
 
 import (
   "os"
-	"fmt"
+  "fmt"
   "log"
   "net/http"
   "encoding/json"
   "gopkg.in/redis.v3"
-	"github.com/go-ozzo/ozzo-routing"
+  "github.com/go-ozzo/ozzo-routing"
   "github.com/go-ozzo/ozzo-routing/fault"
   "github.com/go-ozzo/ozzo-routing/slash"
-	"github.com/go-ozzo/ozzo-routing/access"
-	"github.com/go-ozzo/ozzo-routing/content"
+  "github.com/go-ozzo/ozzo-routing/access"
+  "github.com/go-ozzo/ozzo-routing/content"
 )
 
 func main() {
@@ -45,7 +45,7 @@ func main() {
 	api.Get(`/hgetall/<id:\D+>`, func(c *routing.Context) error {
 
 		redHash, err := red.HGetAllMap(c.Param("id")).Result()
-    if err == redis.Nil {
+		 if err == redis.Nil {
 			return c.Write("None")
 		}
 
