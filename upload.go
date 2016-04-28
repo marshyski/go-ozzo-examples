@@ -28,6 +28,7 @@ func main() {
 		content.TypeNegotiator(content.JSON),
 	)
 
+  // curl -XPOST -F file=@myfile.jpeg localhost:8080/v1/upload
 	api.Post("/upload", func(c *routing.Context) error {
 
 		c.Request.ParseMultipartForm(32 << 20)
